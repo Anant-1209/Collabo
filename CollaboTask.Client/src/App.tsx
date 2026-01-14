@@ -335,7 +335,7 @@ export default function App() {
                         ) : view === 'users' ? (
                             <UserManagementView />
                         ) : (
-                            <DashboardView tasks={tasks.filter(t => !selectedProjectId || (t.projectId || t.ProjectId) === selectedProjectId)} allTasks={tasks} getStyle={getPriorityStyle} onComment={(t: Task) => { setActiveTaskForComments(t); Comments.list(t.taskId || t.TaskId || '').then(setTaskComments); }} onDelete={handleDeleteTask} onUnassign={handleUnassign} />
+                            <DashboardView tasks={tasks.filter(t => !selectedProjectId || (t.projectId || t.ProjectId) === selectedProjectId)} allTasks={tasks} getStyle={getPriorityStyle} onComment={(t: Task) => { setActiveTaskForComments(t); Comments.list(t.taskId || t.TaskId || '').then(setTaskComments); }} onDelete={handleDeleteTask} onUnassign={handleUnassign} selectedProjectId={selectedProjectId} onMembersChange={loadData} />
                         )}
                     </main>
 
