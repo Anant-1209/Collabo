@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #5D87FF;
+  --color-secondary: #49BEFF;
+  --color-background: var(--bg-body);
+  --color-sidebar: var(--sidebar-bg);
+  --color-primary: #0066A1;
+  /* Worldline Blue */
+}
+
+/* Worldline Theme Variables */
+:root {
+  --color-primary: #0066A1;
+  --bg-body: #F4F7FC;
+  /* Corporate Light Blue/Gray */
+  --bg-paper: #FFFFFF;
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --border-color: #E5E7EB;
+  --sidebar-bg: #FFFFFF;
+}
+
+:root.dark {
+  --color-primary: #0066A1;
+  /* Keep Worldline Blue or slightly lighter for accessibility */
+  --bg-body: #111827;
+  /* Deep Charcoal */
+  --bg-paper: #1F2937;
+  /* Lighter Charcoal */
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
+  --border-color: #374151;
+  --sidebar-bg: #1F2937;
+}
+
+@layer base {
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    overflow: hidden;
+  }
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
