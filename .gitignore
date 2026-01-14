@@ -1,0 +1,34 @@
+# Backend (.NET)
+bin/
+obj/
+*.user
+*.suo
+appsettings.Development.json
+uploads/
+
+# Frontend (React/Vite)
+node_modules/
+dist/
+.vite/
+
+# Python AI
+__pycache__/
+venv/
+*.pyc
+.env
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Gemini
+.gemini/
+
+# Logs
+*.log
