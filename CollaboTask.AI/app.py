@@ -40,14 +40,25 @@ def analyze_workload():
     
     # Calculate tasks per user
     user_task_count = {}
+    user_names = []
     for user in users:
         user_name = user.get('name', '')
         user_task_count[user_name] = 0
+        user_names.append(user_name)
     
     for task in tasks:
         assignee = task.get('assignee') or task.get('Assignee')
-        if assignee and assignee in user_task_count:
-            user_task_count[assignee] += 1
+        if assignee:
+            # Try exact match first
+            if assignee in user_task_count:
+                user_task_count[assignee] += 1
+            else:
+                # Try case-insensitive partial match
+                assignee_lower = assignee.lower()
+                for name in user_names:
+                    if name.lower() == assignee_lower or name.lower() in assignee_lower or assignee_lower in name.lower():
+                        user_task_count[name] += 1
+                        break
     
     # Calculate average and identify overloaded/underloaded
     if not user_task_count:
